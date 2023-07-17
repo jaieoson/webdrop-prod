@@ -7,7 +7,7 @@ import { useState } from "react";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { GetServerSideProps } from "next/types";
-import { prisma } from "../../lib/prisma";
+import { prisma } from "prisma";
 import UploadImages from "../../components/UploadsMultipleS3";
 import Link from "next/link";
 
