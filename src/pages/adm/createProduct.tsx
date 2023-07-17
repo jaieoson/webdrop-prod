@@ -5,7 +5,7 @@ import Router from "next/router";
 import { signIn, signOut } from "next-auth/react";
 import { useState } from "react";
 import NavBar from "../../components/Navbar";
-import ProductList from "../../components/ProductList";
+//import ProductList from "../../components/ProductList";
 import Upload from "../../components/Upload";
 import Footer from "../../components/Footer";
 import ImagesUpload from "../../components/ImagesUpLoad";
