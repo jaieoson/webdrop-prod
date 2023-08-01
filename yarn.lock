@@ -2243,6 +2243,11 @@ openid-client@^5.4.0:
     object-hash "^2.2.0"
     oidc-token-hash "^5.0.3"
 
+openssl@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/openssl/-/openssl-2.0.0.tgz#7204cad363e83e0d7860da95dd0a0fc9d1d7a20c"
+  integrity sha512-0FgKhQ/e+XCtTTgn3qZO2g3y+Y3FC/LGvt77oObmMR4ZkZvsV1CuG/mMZClZgZqVKr0+tkemP+I3Uub4WXkHYw==
+
 parse-ms@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/parse-ms/-/parse-ms-2.1.0.tgz#348565a753d4391fa524029956b172cb7753097d"
