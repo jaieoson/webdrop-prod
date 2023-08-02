@@ -52,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 //  }
 
     if (!user) {
-      const result = await fetch("http://localhost:3000/api/users/create", {
+      const result = await fetch("https://webdrop-prod.vercel.app/api/users/create", {
         method: "POST",
         body: JSON.stringify({
           name: session.user?.name,
