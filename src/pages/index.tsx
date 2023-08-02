@@ -102,22 +102,7 @@ function App(props: any) {
       
       <ZoomSlide />
       
-      <div className="bg-blue-100 p-2" style={{width: "98%", marginLeft:"10px"}}>
-    {/* <div className="text-center rounded-lg p-2 py-12 text-2xl">
-
-          Bem-vindo ao nosso novo e emocionante e-commerce! Nosso compromisso é oferecer a melhor experiência de
-          compra online para nossos clientes, com uma ampla seleção de produtos de alta qualidade a preços competitivos.
-          Navegar pelo nosso site é fácil e intuitivo, permitindo que você encontre rapidamente o que precisa. Além disso,
-          nossas opções de pagamento são seguras e confiáveis, garantindo uma compra tranquila e rápida.
-
-          Nossa meta é criar uma comunidade de clientes felizes e satisfeitos, e nossa equipe está sempre à disposição
-          para ajudar com quaisquer dúvidas ou problemas. Venha fazer parte da nossa comunidade e aproveite a nossa incrível
-          seleção de produtos!
-          
-         
-        </div> */}
-        
-</div>   
+    
 <br></br>
 <br></br>
 <section className="overflow-hidden text-gray-700 ">
@@ -138,7 +123,7 @@ function App(props: any) {
                 height={100}
                 priority
                   alt={data.title}        
-                  style={{ width: "200px", height: "200px", objectFit: "cover" }}/>
+                  style={{  objectFit: "cover" }}/>
         </a>
         </Link>
 
