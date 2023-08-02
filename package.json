@@ -6,7 +6,9 @@
   "author": "jaieosom <jaieosom@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+   "build": "vercel-build"
+
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
