@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { getSession, useSession } from "next-auth/react";
 import { FormEvent, SetStateAction, useEffect, useRef } from "react";
-//import Router from "next/router";
+import Router from "next/router";
 import { signIn, signOut } from "next-auth/react";
 import { useState } from "react";
 import NavBar from "../../components/Navbar";

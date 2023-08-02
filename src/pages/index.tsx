@@ -13,10 +13,34 @@ import Head from "next/head";
 //import { prisma } from "../lib/prisma";
 import  Image  from "next/image";
 import Link from "next/link";
-//import { Zoom } from 'react-slideshow-image';
+import { Zoom } from 'react-slideshow-image';
 //import 'react-slideshow-image/dist/styles.css';
 //import Footer from "../components/Footer";
 //import { CartContext } from "../context/CartContext";
+
+
+const ZoomSlide = () => {
+  const images = [
+    "../slide01/frete-gratis-20-08.jpg",
+    "../slide01/Captura de tela 2023-02-14 154326.png",
+    "../slide01/smartwatches-dual-campaign-2022.jpg",
+];
+
+
+return (
+    <div style={{width: "99%", padding: "10px"}}>
+    <Zoom scale={1.2} indicators={true} >
+          {images.map((each, index) => (
+              <div key={index} style={{ width: "100%" }}>
+                  <img style={{ objectFit: "cover", width: "100%", height: "400px" }} alt="Slide Image" src={each} />
+              </div>
+          ))}
+      
+    </Zoom>
+    </div>
+  );
+};
+
 
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
@@ -65,7 +89,8 @@ function App(props: any) {
       </Head>
       <NavBar /> 
       
-
+      <ZoomSlide />
+      
       <div className="bg-blue-100 p-2" style={{width: "98%", marginLeft:"10px"}}>
     {/* <div className="text-center rounded-lg p-2 py-12 text-2xl">
 
