@@ -114,16 +114,16 @@ function App(props: any) {
       return (
               
         <div key={key}>
-        <div className="flex flex-wrap w-1/3">
-        <div className="w-full p-4 md:p-2">
+      
+        <div className="w-full p-4 md:p-8">
         <Link href={pasta + data.id} className="group" legacyBehavior >        
         <a style={{ cursor: 'pointer' }}>  
         <Image src={data.photo}
-                width={200}
-                height={200}
+                width={100}
+                height={100}
                 priority
                   alt={data.title}        
-                  style={{ width: "200px", height: "200px", objectFit: "cover" }}/>
+                  style={{ width: "200px", height: "200px", objectFit: "cover" }} />
         </a>
         </Link>
 
@@ -137,7 +137,7 @@ function App(props: any) {
 
               
 </div>
-    </div>
+ 
           
   </div>) 
 }
