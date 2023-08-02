@@ -9,7 +9,7 @@ import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from 'next-auth/providers/google'
 
 export default NextAuth({
-  secret: process.env.SECRET,
+  
   providers: [
     // OAuth authentication providers
       // EmailProvider({
@@ -28,4 +28,6 @@ export default NextAuth({
     }),
   
   ],
+
+  secret: process.env.SECRET,
 })
