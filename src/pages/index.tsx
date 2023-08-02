@@ -10,7 +10,7 @@ import { Suspense } from "react";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-//import { prisma } from "../lib/prisma";
+import { prisma } from "../lib/prisma";
 import  Image  from "next/image";
 import Link from "next/link";
 import { Zoom } from 'react-slideshow-image';
@@ -58,12 +58,22 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 */
   
   
+const products = await prisma.product.findMany({
+  select: {
+    id: true,
+    title: true,
+    price: true,
+    photo: true,
+  }
+});
 return {
-  props: {
-    
-  },
-    };
+props: {
+  prod: products, 
+},
 };
+};
+  
+  
 
 function App(props: any) {  
   const prod = props.prod;
@@ -112,8 +122,45 @@ function App(props: any) {
 <br></br>
 <section className="overflow-hidden text-gray-700 ">
 <div className="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
-<div className="flex flex-wrap -m-1 md:-m-2">
-   OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+          <div className="flex flex-wrap -m-1 md:-m-2">
+            
+
+          {prod.map((data, key) => {
+      return (
+              
+        <div key={key}>
+        <div className="flex flex-wrap w-1/3">
+        <div className="w-full p-4 md:p-2">
+        <Link href={pasta + data.id} className="group" legacyBehavior >        
+        <a style={{ cursor: 'pointer' }}>  
+        <Image src={data.photo}
+                width={100}
+                height={100}
+                priority
+                  alt={data.title}        
+                  style={{ width: "200px", height: "200px", objectFit: "cover" }}/>
+        </a>
+        </Link>
+
+         <Link href={pasta + data.id} className="group" legacyBehavior> 
+              <a style={{ cursor: 'pointer' }}>
+                <p>{data.title}</p>
+                
+                </a>
+             </Link>
+
+
+              
+</div>
+    </div>
+          
+  </div>) 
+}
+)} 
+            
+
+
+
     </div>
   </div>
 </section>
