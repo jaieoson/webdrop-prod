@@ -21,9 +21,10 @@ import { Zoom } from 'react-slideshow-image';
 
 const ZoomSlide = () => {
   const images = [
-    "../slide01/frete-gratis-20-08.jpg",
+    "../../slide01/frete-gratis-20-08.jpg",
     "../slide01/Captura de tela 2023-02-14 154326.png",
     "../slide01/smartwatches-dual-campaign-2022.jpg",
+    
 ];
 
 
