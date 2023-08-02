@@ -119,11 +119,11 @@ function App(props: any) {
         <Link href={pasta + data.id} className="group" legacyBehavior >        
         <a style={{ cursor: 'pointer' }}>  
         <Image src={data.photo}
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 priority
                   alt={data.title}        
-                  style={{  objectFit: "cover" }}/>
+                  style={{ width: "200px", height: "200px", objectFit: "cover" }}/>
         </a>
         </Link>
 
