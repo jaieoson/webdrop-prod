@@ -14,7 +14,7 @@ import Head from "next/head";
 import  Image  from "next/image";
 import Link from "next/link";
 import { Zoom } from 'react-slideshow-image';
-//import 'react-slideshow-image/dist/styles.css';
+import 'react-slideshow-image/dist/styles.css';
 //import Footer from "../components/Footer";
 //import { CartContext } from "../context/CartContext";
 
