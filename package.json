@@ -6,7 +6,10 @@
   "author": "jaieosom <jaieosom@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "postinstall": "prisma generate",
+    "build": "prisma generate && <actual-build-command>"
+
   },
 
   "dependencies": {
