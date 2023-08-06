@@ -150,7 +150,7 @@ export default function Component(props: any) {
       {prod.map(product => (
         <div className="w-1/3 p-4" key={product.id}>
           <div className="w-64 h-32   bg-gray-200 overflow-hidden rounded-lg">
-            <Link href={"/adm/edit-Product/"+product.id} legacyBehavior>
+            <Link href={"/adm/edit-prod/"+product.id} legacyBehavior>
               <a>Edit</a>
           </Link>
             
