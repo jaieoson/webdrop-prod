@@ -4,14 +4,14 @@ import { FormEvent, SetStateAction, useEffect, useRef } from "react";
 import Router from "next/router";
 import { signIn, signOut } from "next-auth/react";
 import { useState } from "react";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../../components/Navbar";
 //import ProductList from "../../components/ProductList";
 //import Upload from "../../components/Upload";
-import Footer from "../../components/Footer";
+import Footer from "../../../components/Footer";
 //import ImagesUpload from "../../components/ImagesUpLoad";
 import { GetServerSideProps } from "next/types";
-import { prisma } from "../../lib/prisma";
-import UploadImages from "../../components/UploadsMultipleS3";
+import { prisma } from "../../../lib/prisma";
+import UploadImages from "../../../components/UploadsMultipleS3";
 
 
 
@@ -70,9 +70,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query }) => 
           },
     })
  
-   
-  
-
   return {
     props: {
       user: user,
@@ -80,17 +77,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query }) => 
     },
   };
 
-
-
-
-
-
 };
-
-
-
-
-
 
 
 export default function Comp(props: any) {
@@ -123,41 +110,28 @@ export default function Comp(props: any) {
 
   const [newListCat, setNewListCat] = useState(list);
 
-const [newCateg, setNewCatego] = useState(prod.category.title);
+  const [newCateg, setNewCatego] = useState(prod.category.title);
 
-
-  console.log(newUserid);
-  console.log(newCatId);
- 
-  
   const childToParent = function (childdata: []) {
     // childdata = urlList
     setNewImags(childdata); 
 
     childdata.map((url, index) => (
       setNewPhoto(url)
-  
-
-      
+        
     ))
 // usar crop para criar um tambnail e setar
-
-
     // tem que encontrar um local melhor para setar o userid
-console.log(user.id);
+
 setNewUserid(user.id);
-
-
   };
 
 
 
-
-
-  async function handleCreateProd(event: FormEvent) {
+  async function handleUpdateProd(event: FormEvent) {
     event.preventDefault();
 
-    const result = await fetch("https://webdrop-prod.vercel.app/api/products/create", {
+    const result = await fetch("https://webdrop-prod.vercel.app/api/products/update", {
       method: "POST",
       body: JSON.stringify({
        
@@ -180,7 +154,7 @@ setNewUserid(user.id);
 // se inserir com sucesso, abre uma mensagem e limpa os inputs
  
 if (result.status === 201) {
-  setNewMsnProdSucess('Cadastrado com sucesso!');
+  setNewMsnProdSucess('Atualizado com sucesso!');
   handleStart();
   setNewTitle("");
 
@@ -202,42 +176,6 @@ if (result.status === 400) {
     // select no db pelo estado de newCat para saber se a categoria que vai ser criada já existe
     // bloqueia o botao até que esteja tudo ok com a criação da nova categoria
 
-  async function handleCreateCat(event: FormEvent) {
-    event.preventDefault();
-
-   
-     const result = await fetch("https://webdrop-prod.vercel.app/api/categories/create", {
-       method: "POST",
-       body: JSON.stringify({   
-         title: newCat.trim(),
-         photo: newPhoto,
-         tambnail: newTambnail,
-       }),
-       headers: {
-         "Content-Type": "application/json",
-       },
-     });
-     
-    if (result.status === 201) {
-      setNewMsnSucess('Cadastrado com sucesso!');
-      handleStart();
-      setNewCat("");
-      setNewListCat(list);
- // aqui gostaria de setar a lista atualizada com a categoria recem criada
-
-      
-    }
-
-    if (result.status === 400) {
-      setNewMsnSucess('Essa categoria já existe, escolha outro nome');
-      handleStart();
-    
- 
-    }
-
-
-
-  }
   
   const increment = useRef(null);
   const handleStart = () => {
@@ -256,47 +194,9 @@ if (result.status === 400) {
         <NavBar />
 
         <br />
-        <h1 className="text-3xl text-red-800">Create Category</h1>
-        <br />
-{newMsnSucess}
-        <br />
-        
-        <form onSubmit={handleCreateCat}>
+       
 
-        <div className="mb-6 bg-blue-300">
-            <input
-              value={newCat}
-              onChange={(e) => setNewCat(e.target.value)}
-              placeholder="criar categoria"
-              type="text"
-              id="default-input"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              required
-            />
-          </div>
-          <br></br>
-
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          
-           
-            disabled={ newCat === "" ? true : false}
-            
-          >
-            Create Category
-          </button>
-        </form>
-        <br />
-        <hr/>
-        <br /><br />
-        <h1 className="text-3xl text-red-800">Create Product</h1>
-        <br />
-{newMsnProdSucess}
-        <br />
-        
-
-        <form onSubmit={handleCreateProd}>
+        <form onSubmit={handleUpdateProd}>
        
           <div className="mb-6">
             <input
