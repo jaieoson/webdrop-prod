@@ -24,9 +24,6 @@ import Link from "next/link";
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
  
  
-  
-
-
   const id  = query.id;
   
 

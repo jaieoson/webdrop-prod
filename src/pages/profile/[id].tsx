@@ -22,13 +22,10 @@ import Link from "next/link";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
  
- 
-
+  type String = any
   
   const id = query.id;
   
-  
-
   // aqui tem que procurar o usuário pelo id usando findMany e não findFirst
   // analisar melhor aqui isso, pode haver o problema aqui
     const user = await prisma.user.findFirst({
