@@ -30,7 +30,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const id  = query.id;
   
 
-  console.log(id);
   // aqui tem que procurar o usuário pelo id usando findMany e não findFirst
   // analisar melhor aqui isso, pode haver o problema aqui
     const prod = await prisma.product.findFirst({
