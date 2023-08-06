@@ -25,13 +25,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query }) => 
   const user = await prisma.user.findFirst({
     where: {
           email: session.user.email,
-          id: id as String,
+          
     },
     select: {
       id: true,
       product: {
           select: {
-              id: true,
+              id: id as String,
               title: true,
               description: true,
               price: true,
