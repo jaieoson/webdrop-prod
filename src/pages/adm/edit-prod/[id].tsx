@@ -29,26 +29,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query }) => 
     },
     select: {
       id: true,
-      product: {
-          select: {
-              id: id as String,
-              title: true,
-              description: true,
-              price: true,
-              stock: true,
-              supplierUrl: true,
-              Category: {
-                  select: {
-                      title: true,
-                  }
-              },
-              catId: true,
-              photo: true,
-              tambnail: true,
-              imgs: true,
-            
-          }
-      }
+      name: true,
     }
   });
 
@@ -69,11 +50,35 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query }) => 
             title: true,
           },
     })
+
+
+
+    const prod = await prisma.product.findMany({
+      // Returns all user fields
+      select: {
+        id: id as String,
+        title: true,
+        description: true,
+        price: true,
+        stock: true,
+        supplierUrl: true,
+        Category: {
+            select: {
+                title: true,
+            }
+        },
+        catId: true,
+        photo: true,
+        tambnail: true,
+        imgs: true,
+          },
+    })
  
   return {
     props: {
       user: user,
       list: listCategory,
+      prod: prod,
     },
   };
 
@@ -83,7 +88,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query }) => 
 export default function Comp(props: any) {
   const user = props.user;
   const list = props.list;
-  const prod = props.user.product;
+  const prod = props.prod;
   // list.map((url, index) => (
 
 
