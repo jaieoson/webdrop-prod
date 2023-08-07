@@ -98,14 +98,14 @@ export default function Comp(props: any) {
   // console.log(session?.user?.email);
   const [newCat, setNewCat] = useState("");
   const [newCatId, setNewCatId] = useState("");
-  const [newTitle, setNewTitle] = useState(prod.title);
-  const [newPrice, setNewPrice] = useState(prod.price);
-  const [newStock, setNewStock] = useState(prod.stock);
-  const [newDescription, setNewDescription] = useState(prod.description);
-  const [newSupplierUrl, setNewSupplierUrl] = useState(prod.supplierUrl);
-  const [newUserid, setNewUserid] = useState(prod.userid);
-  const [newPhoto, setNewPhoto] = useState(prod.photo);
-  const [newTambnail, setNewTambnail] = useState(prod.tambnail);
+  const [newTitle, setNewTitle] = useState(prod?.title);
+  const [newPrice, setNewPrice] = useState(prod?.price);
+  const [newStock, setNewStock] = useState(prod?.stock);
+  const [newDescription, setNewDescription] = useState(prod?.description);
+  const [newSupplierUrl, setNewSupplierUrl] = useState(prod?.supplierUrl);
+  const [newUserid, setNewUserid] = useState(prod?.userid);
+  const [newPhoto, setNewPhoto] = useState(prod?.photo);
+  const [newTambnail, setNewTambnail] = useState(prod?.tambnail);
 
   const [newMsnSucess, setNewMsnSucess] = useState("");
 
@@ -115,7 +115,7 @@ export default function Comp(props: any) {
 
   const [newListCat, setNewListCat] = useState(list);
 
-  const [newCateg, setNewCatego] = useState(prod.category.title);
+  const [newCateg, setNewCatego] = useState(prod?.category.title);
 
   const childToParent = function (childdata: []) {
     // childdata = urlList
