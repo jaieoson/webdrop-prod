@@ -9,6 +9,10 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
 import { ok } from 'assert'
 
+import Cart from './Car';
+
+
+
 const navigation = [
   { name: 'Explore', href: '/', current: true },
   { name: 'Team', href: '/login', current: false },
@@ -82,7 +86,7 @@ export default function Example() {
                 
           
 
-           
+           <Cart/>
               
 
 

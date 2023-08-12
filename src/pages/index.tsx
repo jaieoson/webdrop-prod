@@ -15,6 +15,7 @@ import  Image  from "next/image";
 import Link from "next/link";
 import { Zoom } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
+import Footer from "../components/Footer";
 //import Footer from "../components/Footer";
 //import { CartContext } from "../context/CartContext";
 
@@ -151,7 +152,8 @@ function App(props: any) {
 </section>
     
       <br></br>
-
+      <br></br>
+    <Footer />
       </div>
   
   );

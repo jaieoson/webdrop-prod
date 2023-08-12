@@ -15,7 +15,7 @@ import  Image  from "next/image";
 import { prisma } from "../../lib/prisma";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
-//import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 
 
@@ -61,9 +61,6 @@ return {
 };
 
 
-
-
-
 function App(props: any) {
   
   const [imgDetail, setImgDetail] = useState(null);
@@ -76,14 +73,16 @@ function App(props: any) {
  const baseURL = "http://localhost:3000/api/users/select?id=";
  
   const product = props.prod;
+
+
  
-  //const { addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
  // console.log(product);
 
   const handleAdd = (product, i) => {
     // código para finalizar a compra aqui
-    //addToCart(product);
+    addToCart(product);
    // document.getElementById("add").disabled = true;
     
     if (i === 1) {
@@ -159,8 +158,3 @@ function App(props: any) {
 }
 
 export default App;
-
-
-
-
-
