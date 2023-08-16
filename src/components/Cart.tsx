@@ -53,12 +53,11 @@ const PageCart = (props: any) => {
   const [prodQtd, setProdQtd] = React.useState(0);
   const [prodId, setProdId] = React.useState([]);
   const [total, setItem] = React.useState(0);
-  const cart:any = useCart();  
-  const userId = props.user.id;
+  const cart: any = useCart();
 
-  const listItems = [];
+  const userId = 0;
  
-  
+  const listItems = [];
 
   const obj = cart.cart;
 
@@ -67,15 +66,14 @@ const PageCart = (props: any) => {
 
     const items = Object.keys(obj).map(key => {
       const { product } = obj[key];
-   
       listItems.push(product.id);
-
+ 
     })
   }
 
   const handleRemove = id => () => {
     // código para remover item do carrinho e atualizar o total aqui
-    cart.removeFromCart(id)      
+    cart.removeFromCart(id)
   };
 
 
@@ -92,15 +90,15 @@ const PageCart = (props: any) => {
     // pega os dados do cliente e cria um usuário, depois criar um registro do carrinho desde cliente no db
     event.preventDefault();
     if (session) {
-   // se tiver logado direciona para Checkout
-   // senao direciona para login do cliente
-   // se cart fo 0, não existe cart, então add
+      // se tiver logado direciona para Checkout
+      // senao direciona para login do cliente
+      // se cart fo 0, não existe cart, então add
       if (props.user.carts.length === 0) {
         addCartDb(userId, totall, prodQtd, listItems);
         window.location.href = "/checkout";
       } else {
         // vai atualizar o cart com status STARTED
-       // alert(props.user.carts[0].status);
+        // alert(props.user.carts[0].status);
         if (props.user.carts[0].status === "STARTED") {
           updateCartDb(userId, totall, prodQtd, listItems);
           window.location.href = "/checkout";
@@ -114,7 +112,7 @@ const PageCart = (props: any) => {
       // senao tiver logado adicionar cart com userid temporario , quando o fizer login
       // pega userid e atualiza o cart com o userid em che ckout
       window.location.href = "/loginCli";
-}
+    }
   }
   
   if (obj !== null && typeof obj === 'object') {
@@ -131,7 +129,7 @@ const PageCart = (props: any) => {
       return prev + obj[curr].qtd * obj[curr].product.price;
     }, 0);
 
-    useEffect(()=>{
+    useEffect(() => {
       setItem(total);
     }, [total])
 
@@ -140,12 +138,12 @@ const PageCart = (props: any) => {
   
   return (
 
-    <div className="my-4 mt-6 -mx-2 lg:flex">
-      <div className="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+    <div className=" ">
+      <div className="">
         <div className="flex-1">
           <table className="w-full text-sm lg:text-base" cellSpacing="0">
           <thead>
-              <tr className="h-12 uppercase font-medium">
+              <tr className="h-12 uppercase text-xs">
                 <td className=" md:table-cell"></td>
                 <td className="text-left">Produto</td>
                 <td className="text-left">Qtd</td>
@@ -204,7 +202,7 @@ const PageCart = (props: any) => {
                                 <td className="text-right">
                                   <span className="text-sm lg:text-base font-medium">
                                 R$ {c}
-                                  </span>
+                                   </span>
                                               </td>
                                               
                                           </tr> 

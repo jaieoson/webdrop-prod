@@ -5,7 +5,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 //import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Head from 'next/head'
 import { useSession, signIn, signOut } from "next-auth/react"
-//import Cart from './Car'
+
 import Link from 'next/link'
 import { ok } from 'assert'
 
@@ -32,6 +32,8 @@ export default function Example() {
   }
 
   const profile = "./profile/"
+
+  
 
   return (
     <Disclosure as="nav" className="bg-blue-800">

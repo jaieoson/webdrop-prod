@@ -1,16 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 /* SlidingDiv.css */
 .sliding-div {
     position: fixed;
     top: 0;
-    right: -400px; /* Inicialmente oculta à direita */
-    width: 400px;
+    right: -300px; /* Inicialmente oculta à direita */
+    width: 300px;
     height: 100%;
-    background-color: #D3D3D3;
+    background-color: #db2222;
     transition: right 0.3s ease-out;
     box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;

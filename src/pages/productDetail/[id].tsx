@@ -76,7 +76,7 @@ function App(props: any) {
 
 
  
-  const { addToCart } = useContext(CartContext);
+  const {  addToCart } = useContext(CartContext);
 
  // console.log(product);
 
@@ -84,12 +84,13 @@ function App(props: any) {
     // código para finalizar a compra aqui
     addToCart(product);
    // document.getElementById("add").disabled = true;
+   
     
-    if (i === 1) {
-      window.location.href = "/cart";
-    } else {
-      window.location.href = "/checkout";
-    }
+   // if (i === 1) {
+   //   window.location.href = "/cart";
+   // } else {
+   //   window.location.href = "/checkout";
+   // }
 
   };
 
